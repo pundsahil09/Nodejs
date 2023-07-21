@@ -19,7 +19,7 @@ app.use(express.json()); // tell express use json format
 app.use("/user",route); // here user is middleware
 mongoose.set('strictQuery', true); // to avoid warning
 
-mongoose.connect(process.env.DB_connect) // mongodb connection
+mongoose.connect(process.env.DB_connect) // mongodb connection (connection link store in .env folder)
     .then((data) => {
         console.log("Connection created");
     }).catch((error) => {
