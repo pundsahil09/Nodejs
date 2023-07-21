@@ -5,6 +5,7 @@ const fs = require('fs');
 http.createServer((req, resp)=>{
     console.log("Server Created");
 
+    //Rename file
     fs.rename('demo1.js','renm.js',(err)=>{
         if (err) {
             console.log(err);
@@ -13,6 +14,7 @@ http.createServer((req, resp)=>{
         resp.end();
     })
 
+    //Update file
 /*    fs.writeFile('demo.js','let a = 10; console.log(a);',(err)=>{
         if (err) {
             console.log(err);
@@ -22,7 +24,7 @@ http.createServer((req, resp)=>{
         return resp.end();
     });
 */
-    
+    // Open file
 /*    fs.open('demo.html','r',(err)=>{
         if(err) throw err;
 
