@@ -50,8 +50,9 @@ route.post("/login",async (req,res)=>{
     const isPass = await bcrypt.compare(req.body.password, userExist.password)
     if(!isPass) return res.status(404).send("INVALID PASSWORD.."); // check password is correct
 
-    const token = jwt.sign({_id:userExist._id}, process.env.Tokent_secret)
-    res.header('auth-token',token).send(token) // creating token for authentication
+    // const token = jwt.sign({_id:userExist._id}, process.env.Tokent_secret) // creating token for authentication
+    const token = jwt.sign({email:userExist.email}, process.env.Tokent_secret) // creating token for authentication
+    res.header('auth-token',token).send(token) // sending token through header
 
     return res.status(200).send("LOGIN SUCCESSFUL..")
 
